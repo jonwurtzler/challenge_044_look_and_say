@@ -1,0 +1,24 @@
+{
+  "name": "jonwurtzler/challenge_044_look_and_say",
+  "description": "Recreate Conway's Look and Say as found: https://en.wikipedia.org/wiki/Look-and-say_sequence",
+  "authors": [
+    {
+      "name": "Jon Wurtzler",
+      "email": "jon.wurtzler@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "require-dev": {
+    "phpunit/phpunit" : "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "LookAndSay\\": "src/LookAndSay/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/LookAndSayTest.php"
+    ]
+  }
+}
