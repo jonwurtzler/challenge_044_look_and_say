@@ -6,6 +6,22 @@ use Exception;
 
 class LookAndSay
 {
+
+  /**
+   * @var int
+   */
+  protected $iterations = 0;
+
+  /**
+   * @var int
+   */
+  protected $numOfOutputs = 0;
+
+  /**
+   * @var int
+   */
+  protected $outputLevel = 10;
+
   /**
    * @param string $input
    * @param int    $iteration
@@ -24,6 +40,9 @@ class LookAndSay
     }
 
     if ($iteration-- > 0) {
+      $this->iterations++;
+      $this->checkIterations();
+
       for ($i = 0; $i < strlen($input); $i++) {
         if (empty($lookString)) {
           $lookString = $input[$i];
@@ -47,5 +66,18 @@ class LookAndSay
     }
 
     return $input;
+  }
+
+  /**
+   * The current challenge requires a very large output, I need to see how far it goes before it dies.
+   */
+  private function checkIterations()
+  {
+    if ($this->iterations >= $this->outputLevel) {
+      $this->iterations = 0;
+      $this->numOfOutputs++;
+
+      echo $this->outputLevel * $this->numOfOutputs . "\n";
+    }
   }
 }
